@@ -53,3 +53,5 @@ gem 'simple_form', git: "https://github.com/plataformatec/simple_form.git"
 
 # Nested Forms
 gem 'nested_form'
+
+gem 'eventmachine', github: "eventmachine/eventmachine"

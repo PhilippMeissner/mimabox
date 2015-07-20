@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/eventmachine/eventmachine.git
+  revision: 45db519d1f24a965c0da3751f0850ff3c099d5a2
+  specs:
+    eventmachine (1.0.7)
+
+GIT
   remote: https://github.com/plataformatec/simple_form.git
   revision: ed3de1c2b566a962697529e824953f6b280e2867
   specs:
@@ -48,11 +54,6 @@ GEM
       thor
     builder (3.2.2)
     callsite (0.0.11)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     coderay (1.1.0)
@@ -68,7 +69,6 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
-    eventmachine (1.0.3)
     execjs (2.1.0)
     ffi (1.9.3)
     font-awesome-rails (4.1.0.0)
@@ -116,7 +116,6 @@ GEM
       minitest (>= 5.3.3, < 6.0)
       railties (~> 4.1)
     multi_json (1.10.1)
-    mysql2 (0.3.16)
     nested_form (0.3.2)
     polyglot (0.3.5)
     pry (0.9.12.6)
@@ -152,7 +151,6 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     ref (1.0.5)
-    rmagick (2.13.3)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -193,8 +191,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.2)
-      coffee-rails
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
     uglifier (2.5.0)
@@ -209,8 +205,8 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 3.1.1)
   bourbon
-  carrierwave
   coffee-rails (~> 4.0.0)
+  eventmachine!
   font-awesome-rails
   guard-livereload
   guard-rails
@@ -218,11 +214,9 @@ DEPENDENCIES
   jquery-rails
   meta_request
   minitest-rails
-  mysql2
   nested_form
   quiet_assets
   rails (= 4.1.0)
-  rmagick
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form!
@@ -230,5 +224,7 @@ DEPENDENCIES
   spring
   sqlite3
   therubyracer
-  turbolinks
   uglifier (>= 1.3.0)
+
+BUNDLED WITH
+   1.10.5
