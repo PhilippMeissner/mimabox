@@ -16,8 +16,6 @@ gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -49,16 +47,9 @@ group :development do
   gem 'meta_request'
 end
 
-group :production do 
-  gem 'mysql2'
-end
 
 # Simple Form
 gem 'simple_form', git: "https://github.com/plataformatec/simple_form.git"
 
 # Nested Forms
 gem 'nested_form'
-
-# Carrierwave (Image processing)
-gem 'carrierwave'
-gem 'rmagick'
