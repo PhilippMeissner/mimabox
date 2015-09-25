@@ -52,7 +52,7 @@ gem 'simple_form', git: "https://github.com/plataformatec/simple_form.git"
 # Nested Forms
 gem 'nested_form'
 #Ubuntu Fixes
-gem 'eventmachine', github: "https://github.com/eventmachine/eventmachine.git"
+gem 'eventmachine', git: "https://github.com/eventmachine/eventmachine.git"
 
 # Mimabox related
 #Ruby-mpd
