@@ -47,11 +47,13 @@ group :development do
   gem 'meta_request'
 end
 
-
 # Simple Form
 gem 'simple_form', git: "https://github.com/plataformatec/simple_form.git"
-
 # Nested Forms
 gem 'nested_form'
-
+#Ubuntu Fixes
 gem 'eventmachine', github: "eventmachine/eventmachine"
+
+# Mimabox related
+#Ruby-mpd
+gem 'ruby-mpd'
