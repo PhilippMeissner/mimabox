@@ -15,14 +15,22 @@ class MpdController < ApplicationController
 
   # Show information on our status page
   def status
+
+    status          = @mpd.status
+    @volume         = status[:volume]
+    @repeat         = status[:repeat].humanize
+    @random         = status[:random].humanize
+    @bitrate        = status[:bitrate]
+    @state          = status[:state]
+    @opposite_state = opposite(@state)
+
     if !@mpd.current_song
       @current_song = "No song playing"
     else
-      @current_song = @mpd.current_song.file.humanize
+      @current_song = @mpd.current_song.title || File.basename(@mpd.current_song.file, File.extname(@mpd.current_song.file)).humanize
     end
 
     @songs = @mpd.songs.map{ |song| song.file.humanize }
-    @repeat = @mpd.repeat?
   end
 
 
