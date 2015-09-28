@@ -1,7 +1,7 @@
 class MpdController < ApplicationController
   require 'ruby-mpd'
 
-  # BEFORE and AFTER each action, these methods 
+  # BEFORE and AFTER each action, these methods
   # get called to clean up the code
   before_action :new_mpd, except: [:help]
   after_action :disconnect_mpd, except: [:help]
