@@ -75,4 +75,12 @@ class MpdController < ApplicationController
     @mpd.disconnect
   end
 
+  def opposite(data)
+    if data == :play
+      "pause"
+    else
+      data
+    end
+  end
+
 end
