@@ -1,2 +1,7 @@
-h1 Mpd#help
-p Find me in app/views/mpd/help.html.slim
+h1 MPD Commands Help
+
+h3 Available commands:
+ul
+  - @methods.each do |method|
+    li = method
+
