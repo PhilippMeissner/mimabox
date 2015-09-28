@@ -1,0 +1,33 @@
+.row
+  .col-sm-12
+    h1 MPD Status
+    h3 Current Song playing: #{@current_song}
+    h3 Repeat activated? #{@repeat}
+    h3 Songs available:
+    table.table-striped.table-hover
+      thead
+        tr
+          th Filename
+          th Controls
+      tbody
+        - @songs.each do |song|
+          tr
+            td = song
+            td
+              span.glyphicon.glyphicon-play-circle
+
+  .col-sm-12
+    hr
+    .btn-group
+      = link_to_glyph "Start", mpd_start_path, "play-circle"
+      = link_to_glyph "Stop", mpd_stop_path, "stop"
+      = link_to_glyph "Pause", mpd_pause_path, "pause"
+      = link_to_glyph "Previous", mpd_previous_path, "step-backward"
+      = link_to_glyph "Next", mpd_next_path, "step-forward"
+
+      /= link_to "Start MPD", mpd_start_path, class: "btn btn-primary"
+      /= link_to "Stop MPD", mpd_stop_path, class: "btn btn-default"
+      /= link_to "Pause", mpd_pause_path, class: "btn btn-primary"
+      /= link_to "Next Song", "#", class: "btn btn-primary"
+      /= link_to "Previous Song", "#", class: "btn btn-primary"
+
