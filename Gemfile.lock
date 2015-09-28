@@ -1,8 +1,8 @@
 GIT
-  remote: git://github.com/eventmachine/eventmachine.git
-  revision: 45db519d1f24a965c0da3751f0850ff3c099d5a2
+  remote: https://github.com/eventmachine/eventmachine.git
+  revision: b3bfe235c8a0283b2ee8b8bdc4e97f91f62fdfc1
   specs:
-    eventmachine (1.0.7)
+    eventmachine (1.0.8)
 
 GIT
   remote: https://github.com/plataformatec/simple_form.git
