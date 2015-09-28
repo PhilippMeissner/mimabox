@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'pause'
   end
 
-
-  match '*path' => 'static#home', via: [:get, :post]
   root 'static#home'
+
+  #match '*path' => 'static#home', via: [:get, :post]
 end
