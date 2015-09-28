@@ -5,6 +5,13 @@ GIT
     eventmachine (1.0.8)
 
 GIT
+  remote: https://github.com/parabuzzle/humanize_boolean.git
+  revision: 634108bd2c1c3ba67e96da950a4ca1b2ad907c4b
+  specs:
+    humanize_boolean (0.0.2)
+      i18n
+
+GIT
   remote: https://github.com/plataformatec/simple_form.git
   revision: ed3de1c2b566a962697529e824953f6b280e2867
   specs:
@@ -211,6 +218,7 @@ DEPENDENCIES
   font-awesome-rails
   guard-livereload
   guard-rails
+  humanize_boolean!
   jbuilder (~> 2.0)
   jquery-rails
   meta_request

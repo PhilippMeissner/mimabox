@@ -57,3 +57,4 @@ gem 'eventmachine', git: "https://github.com/eventmachine/eventmachine.git"
 # Mimabox related
 #Ruby-mpd
 gem 'ruby-mpd'
+gem 'humanize_boolean', git: "https://github.com/parabuzzle/humanize_boolean.git"
