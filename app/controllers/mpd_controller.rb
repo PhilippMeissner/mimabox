@@ -65,6 +65,10 @@ class MpdController < ApplicationController
     redirect_to mpd_status_path
   end
 
+  def update
+    @mpd.update
+    redirect_to mpd_status_path
+  end
 
 
   private
