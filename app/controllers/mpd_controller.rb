@@ -10,27 +10,29 @@ class MpdController < ApplicationController
   def help
     mpd = MPD.new
     # Sort ASC
-    @methods = mpd.methods.sort_by{|method| method}
+    @methods = mpd.methods.sort_by{ |method| method }
   end
 
   # Show information on our status page
   def status
 
-    status          = @mpd.status
-    @volume         = status[:volume]
-    @repeat         = status[:repeat].humanize
-    @random         = status[:random].humanize
-    @bitrate        = status[:bitrate]
-    @state          = status[:state]
-    @opposite_state = opposite(@state)
+    status            = @mpd.status
+    @volume           = status[:volume]
+    @repeat           = status[:repeat].humanize
+    @random           = status[:random].humanize
+    @bitrate          = status[:bitrate]
+    @state            = status[:state]
+    @opposite_state   = opposite(@state)
+    @current_playlist = @mpd.queue.map{ |song| get_title(song) }
 
     if !@mpd.current_song
       @current_song = "No song playing"
     else
-      @current_song = @mpd.current_song.title || File.basename(@mpd.current_song.file, File.extname(@mpd.current_song.file)).humanize
+      #@current_song = @mpd.current_song.title || File.basename(@mpd.current_song.file, File.extname(@mpd.current_song.file)).humanize
+      @current_song = get_title(@mpd.current_song)
     end
 
-    @songs = @mpd.songs.map{ |song| song.file.humanize }
+    @songs = @mpd.songs.map{ |song| get_title(song) }
   end
 
 
@@ -83,5 +85,9 @@ class MpdController < ApplicationController
     else
       :play
     end
+  end
+
+  def get_title(song)
+    song.title || File.basename(song.file, File.extname(song.file)).humanize
   end
 end
