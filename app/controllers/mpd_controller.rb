@@ -63,13 +63,7 @@ class MpdController < ApplicationController
     redirect_to mpd_status_path
   end
 
-  def opposite(data)
-    if data == :play
-      "pause"
-    else
-      :play
-    end
-  end
+
 
   private
   # Create new MPD instance
@@ -81,5 +75,13 @@ class MpdController < ApplicationController
   # Close connection to our instance
   def disconnect_mpd
     @mpd.disconnect
+  end
+
+  def opposite(data)
+    if data == :play
+      "pause"
+    else
+      :play
+    end
   end
 end
