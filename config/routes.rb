@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'next'
     get 'previous'
     get 'pause'
+    get 'update'
   end
 
   root 'static#home'
