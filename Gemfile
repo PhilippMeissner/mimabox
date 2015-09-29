@@ -60,4 +60,5 @@ gem 'eventmachine', git: "https://github.com/eventmachine/eventmachine.git"
 # gem 'ruby-mpd', git: "https://github.com/archSeer/ruby-mpd.git"
 # For the moment we are better off using 'our' version
 gem 'ruby-mpd', git: "https://github.com/PhilippMeissner/ruby-mpd.git"
+#gem 'ruby-mpd', :path => "/home/pmei/Desktop/code/ruby-mpd", :branch => "master"
 gem 'humanize_boolean', git: "https://github.com/parabuzzle/humanize_boolean.git"
