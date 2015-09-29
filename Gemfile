@@ -56,7 +56,8 @@ gem 'eventmachine', git: "https://github.com/eventmachine/eventmachine.git"
 
 # Mimabox related
 #Ruby-mpd
-gem 'ruby-mpd'
-# Use for local testing and changes only:
-#gem 'ruby-mpd', :path => '/home/pmei/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/ruby-mpd-0.3.3', :branch => 'play_feature'
+# For default gem use:
+# gem 'ruby-mpd', git: "https://github.com/archSeer/ruby-mpd.git"
+# For the moment we are better off using 'our' version
+gem 'ruby-mpd', git: "https://github.com/PhilippMeissner/ruby-mpd.git"
 gem 'humanize_boolean', git: "https://github.com/parabuzzle/humanize_boolean.git"
