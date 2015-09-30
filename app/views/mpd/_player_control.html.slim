@@ -3,6 +3,7 @@
     .btn-group
       = link_to_glyph @opposite_state.capitalize, mpd_pause_path, "#{@opposite_state}"
       = link_to_glyph "Start", mpd_start_path, "play-circle"
+      /= link_to "Start", mpd_start_path, method: :post
       = link_to_glyph "Stop", mpd_stop_path, "stop"
       = link_to_glyph "Previous", mpd_previous_path, "step-backward"
       = link_to_glyph "Next", mpd_next_path, "step-forward"
