@@ -77,13 +77,15 @@ class MpdController < ApplicationController
   end
 
   # Performs a search for a specific title and adds
-  # the results into current queue
+  # the results at the end of our queue
+  #
+  # How to call this function?:
+  # localhost:3000/mpd/add_song?title=TitleToSearchFor
   #
   # Interface(ruby-mpd): 'songs_by_title(title, options = {})'
   # TODO: Add search by artists
   def add_song
-    @song = @mpd.songs_by_title(params[:title], { add: true })
-    @title = params[:title]
+    @mpd.songs_by_title(params[:title], { strict: false, add: true })
     redirect_to mpd_status_path
   end
 
