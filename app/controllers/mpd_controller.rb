@@ -1,4 +1,5 @@
 class MpdController < ApplicationController
+  # Load our ruby-mpd gem environment up
   require 'ruby-mpd'
 
   # BEFORE and AFTER each action, these methods
@@ -6,14 +7,15 @@ class MpdController < ApplicationController
   before_action :new_mpd, except: [:help]
   after_action :disconnect_mpd, except: [:help]
 
-  # List all available commands for an MPD instance
+
+  # List all available commands for an mpd instance
   def help
     mpd = MPD.new
     # Sort ASC
     @methods = mpd.methods.sort_by{ |method| method }
   end
 
-  # Show information on our status page
+  # Retrieves information from mpd
   def status
 
     status            = @mpd.status
@@ -36,22 +38,25 @@ class MpdController < ApplicationController
   end
 
 
-  # Start the playlist
+  # Starts the playlist
   def start
     @mpd.play if @mpd.stopped?
     redirect_to mpd_status_path
   end
 
+  # Stops queue
   def stop
     @mpd.stop unless @mpd.stopped?
     redirect_to mpd_status_path
   end
 
+  # Plays next song
   def next
     @mpd.next
     redirect_to mpd_status_path
   end
 
+  # Plays previous song
   def previous
     @mpd.previous
     redirect_to mpd_status_path
@@ -65,24 +70,37 @@ class MpdController < ApplicationController
     redirect_to mpd_status_path
   end
 
+  # Updates the queue/database
   def update
     @mpd.update
     redirect_to mpd_status_path
   end
 
+  # Performs a search for a specific title and adds
+  # the results into current queue
+  #
+  # Interface(ruby-mpd): 'songs_by_title(title, options = {})'
+  # TODO: Add search by artists
+  def add_song
+    @song = @mpd.songs_by_title(params[:title], { add: true })
+    @title = params[:title]
+    redirect_to mpd_status_path
+  end
+
 
   private
-  # Create new MPD instance
+  # Creates a new MPD instance
   def new_mpd
     @mpd = MPD.new
     @mpd.connect
   end
 
-  # Close connection to our instance
+  # Closes connection to our instance
   def disconnect_mpd
     @mpd.disconnect
   end
 
+  # Returns the opposite of play/pause
   def opposite(data)
     if data == :play
       "pause"
@@ -91,6 +109,7 @@ class MpdController < ApplicationController
     end
   end
 
+  # Retrieves the songs title OR uses its filename in a human readeable form
   def get_title(song)
     song.title || File.basename(song.file, File.extname(song.file)).humanize
   end
