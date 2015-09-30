@@ -6,50 +6,13 @@
     | Current Song playing: 
     strong = @current_song
     hr
-  .col-sm-12
-    .btn-group.controls
-      = link_to_glyph @opposite_state.capitalize, mpd_pause_path, "#{@opposite_state}"
-      = link_to_glyph "Start", mpd_start_path, "play-circle"
-      = link_to_glyph "Stop", mpd_stop_path, "stop"
-      = link_to_glyph "Previous", mpd_previous_path, "step-backward"
-      = link_to_glyph "Next", mpd_next_path, "step-forward"
-      = link_to_glyph "Update", mpd_update_path, "refresh"
-    hr
-    h3 Current playlist:
-    table.table-striped.table-hover.table-bordered
-      thead
-        tr
-          th Filename
-          th Controls
-      tbody
-        - @current_playlist.each do |song|
-          tr
-            td = song
-            td
-              span.glyphicon.glyphicon-play-circle.space
-              span.glyphicon.glyphicon-thumbs-up.space
-              span.glyphicon.glyphicon-remove
 
+/ Renders the control panel - partial
+= render "player_control"
 
-    h3 Songs available:
-    table.table-striped.table-hover.table-bordered
-      thead
-        tr
-          th Filename
-          th Controls
-      tbody
-        - @songs.each do |song|
-          tr
-            td = song
-            td
-              = link_to_glyph "Add", "/mpd/add_song?title=#{song}", "check space"
-              span.glyphicon.glyphicon-play-circle.space
-              span.glyphicon.glyphicon-thumbs-up.space
-              span.glyphicon.glyphicon-remove
+/ Renders the current queue - partial
+= render "queue"
 
-      /= link_to "Start MPD", mpd_start_path, class: "btn btn-primary"
-      /= link_to "Stop MPD", mpd_stop_path, class: "btn btn-default"
-      /= link_to "Pause", mpd_pause_path, class: "btn btn-primary"
-      /= link_to "Next Song", "#", class: "btn btn-primary"
-      /= link_to "Previous Song", "#", class: "btn btn-primary"
+/ Renders all available songs - partial
+= render "all_songs"
 

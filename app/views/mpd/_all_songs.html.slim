@@ -1,0 +1,24 @@
+.row
+  .col-sm-12
+    h3 Songs available:
+    table.table-striped.table-hover.table-bordered
+      thead
+        tr
+          th Filename
+          th Controls
+      tbody
+        - @songs.each do |song|
+          tr
+            td = song
+            td
+              = link_to_glyph "Add", "/mpd/add_song?title=#{song}", "check space"
+              span.glyphicon.glyphicon-play-circle.space
+              span.glyphicon.glyphicon-thumbs-up.space
+              span.glyphicon.glyphicon-remove
+
+      /= link_to "Start MPD", mpd_start_path, class: "btn btn-primary"
+      /= link_to "Stop MPD", mpd_stop_path, class: "btn btn-default"
+      /= link_to "Pause", mpd_pause_path, class: "btn btn-primary"
+      /= link_to "Next Song", "#", class: "btn btn-primary"
+      /= link_to "Previous Song", "#", class: "btn btn-primary"
+
