@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/PhilippMeissner/ruby-mpd.git
-  revision: 4373df57acc7cb9a0229c4077a7a58cae39eda49
+  revision: 185f79f2db46caff34c06dac9c9a3d81d267984b
   specs:
-    ruby-mpd (0.3.5)
+    ruby-mpd (0.3.6)
 
 GIT
   remote: https://github.com/eventmachine/eventmachine.git
