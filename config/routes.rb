@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'previous'
     get 'pause'
     get 'update'
+    get 'add_song'
   end
 
   root 'static#home'
