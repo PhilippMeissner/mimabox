@@ -1,0 +1,17 @@
+.row
+  .col-sm-12.queue
+    h3 Current playlist:
+    table.table-striped.table-hover.table-bordered
+      thead
+        tr
+          th Filename
+          th Controls
+      tbody
+        - @current_playlist.each do |song|
+          tr
+            td = song
+            td
+              span.glyphicon.glyphicon-play-circle.space
+              span.glyphicon.glyphicon-thumbs-up.space
+              span.glyphicon.glyphicon-remove
+
