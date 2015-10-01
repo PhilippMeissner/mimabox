@@ -83,9 +83,12 @@ class MpdController < ApplicationController
   # localhost:3000/mpd/add_song?title=TitleToSearchFor
   #
   # Interface(ruby-mpd): 'songs_by_title(title, options = {})'
-  # TODO: Add search by artists
   def add_song
-    @mpd.songs_by_title(params[:title], { strict: false, add: true })
+    if params[:title]
+      @mpd.songs_by_title(params[:title], { strict: false, add: true })
+    elseif params[:artist]
+      @mpd.songs_by_artist(params[:artist], { strict: false, add: true })
+    end
     redirect_to mpd_status_path
   end
 
