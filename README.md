@@ -4,3 +4,6 @@
 * Erik Falk
 * Patrick Wels
 * Rick Fastenrath
+
+# Documentation
+For questions check our [Documentation!](https://github.com/PhilippMeissner/mimabox/wiki)
