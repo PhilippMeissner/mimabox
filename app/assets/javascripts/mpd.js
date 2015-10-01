@@ -1,12 +1,9 @@
 $(document).ready(function(){
-	console.log("ready!");
 	$("a.ctrl").click(function(event){
-		console.log("check");
-		$.post(this,{},function(){
-	 		alert("done");      
+		$.post(this, {}, function(){
+      console.log("Done.");
 		});
 		event.preventDefault();
 		return false;
 	});
 });
- 
