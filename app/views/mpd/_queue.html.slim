@@ -14,7 +14,7 @@
             td = song[:title]
             td
               = link_to_glyph("Play", mpd_play_song_path(song[:id]), "play-circle space")
-              /span.glyphicon.glyphicon-play-circle.space
-              span.glyphicon.glyphicon-thumbs-up.space
-              span.glyphicon.glyphicon-remove
+              = link_to_glyph("Remove", mpd_remove_path(song[:id]), "remove space")
+              span.glyphicon.glyphicon-thumbs-up
+              /= link_to "Remove", mpd_remove_path(song[:id]), class: "btn btn-danger"
 
