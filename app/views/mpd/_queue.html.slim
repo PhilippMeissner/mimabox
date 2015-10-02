@@ -4,14 +4,17 @@
     table.table-striped.table-hover.table-bordered
       thead
         tr
+          th #
           th Filename
           th Controls
       tbody
         - @current_playlist.each do |song|
           tr
-            td = song
+            td = song[:id]
+            td = song[:title]
             td
-              span.glyphicon.glyphicon-play-circle.space
+              = link_to_glyph("Play", mpd_play_song_path(song[:id]), "play-circle space")
+              /span.glyphicon.glyphicon-play-circle.space
               span.glyphicon.glyphicon-thumbs-up.space
               span.glyphicon.glyphicon-remove
 
