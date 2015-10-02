@@ -9,9 +9,11 @@ Rails.application.routes.draw do
     post 'previous'
     post 'pause'
     post 'update'
+    post 'add_song'
   end
   # For some reason this path must not be in the namespace?!
   post '/mpd/play_song/:id', to: 'mpd#play_song', as: 'mpd_play_song'
+  get 'remove/:id', to: 'mpd#remove', as: 'mpd_remove'
 
 
 
