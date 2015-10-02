@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/PhilippMeissner/ruby-mpd.git
-  revision: af4da4c45721b6c835f479d9af59280e43434fca
+  revision: d0095cc6f589e42b236f2d29a5022687bea990e6
   specs:
     ruby-mpd (0.3.7)
 
