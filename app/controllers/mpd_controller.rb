@@ -99,6 +99,11 @@ class MpdController < ApplicationController
     redirect_to mpd_status_path
   end
 
+  def remove
+    @mpd.delete(params[:id])
+    redirect_to mpd_status_path
+  end
+
 
   private
   # Creates a new MPD instance
