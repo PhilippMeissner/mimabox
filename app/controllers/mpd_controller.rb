@@ -104,6 +104,12 @@ class MpdController < ApplicationController
     redirect_to mpd_status_path
   end
 
+  def upvote
+    position = params[:id].to_i
+    @mpd.swap(params[:id], position - 1) unless position == 0
+    redirect_to mpd_status_path
+  end
+
 
   private
   # Creates a new MPD instance
