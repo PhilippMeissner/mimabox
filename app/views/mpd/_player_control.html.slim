@@ -1,5 +1,5 @@
 .row
-  .col-sm-12.player-controls
+  .col-xs-12.player-controls
     .btn-group
       = link_to_glyph @opposite_state.capitalize, mpd_pause_path, "#{@opposite_state}"
       = link_to_glyph "Start", mpd_start_path, "play-circle"
