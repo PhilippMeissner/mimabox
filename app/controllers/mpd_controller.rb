@@ -25,8 +25,7 @@ class MpdController < ApplicationController
     @bitrate          = status[:bitrate]
     @state            = status[:state]
     @opposite_state   = opposite(@state)
-    # song.id - 1, because we need the position within the queue (0 - ALL_SONGS - 1)
-    @current_playlist = @mpd.queue.map{ |song| { title: get_title(song), id: song.id - 1 } }
+    @current_playlist = @mpd.queue.map{ |song| { title: get_title(song), id: song.pos } }
 
     if !@mpd.current_song
       @current_song = "No song playing"
@@ -87,7 +86,7 @@ class MpdController < ApplicationController
   def add_song
     if params[:title]
       @mpd.songs_by_title(params[:title], { strict: false, add: true })
-    elseif params[:artist]
+    elsif params[:artist]
       @mpd.songs_by_artist(params[:artist], { strict: false, add: true })
     end
     redirect_to mpd_status_path
