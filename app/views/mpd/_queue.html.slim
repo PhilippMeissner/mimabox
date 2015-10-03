@@ -9,13 +9,11 @@
           th Controls
       tbody
         - @current_playlist.each do |song|
-          tr
+          tr id = song[:id]
             td = song[:id]
             td = song[:title]
             td
-              = link_to_glyph("Play", mpd_play_song_path(song[:id]), "play-circle space")
-              = link_to_glyph("Remove", mpd_remove_path(song[:id]), "remove space")
-              /= link_to_glyph("Upvote", mpd_upvote_path(song[:id]), "thumbs-up")
-              = link_to "Upvote", mpd_upvote_path(song[:id]), class: "btn btn-info"
-              /= link_to "Remove", mpd_remove_path(song[:id]), class: "btn btn-danger"
+              = link_to "Play", mpd_play_song_path(song[:id]), method: :post, class: "play-song-btn btn btn-primary space play"
+              = link_to "Remove", mpd_remove_path(song[:id]), method: :post, class: "remove-song-btn btn btn-default space"
+              = link_to "Upvote", mpd_upvote_path(song[:id]), class: "upvote-song-btn btn btn-info"
 
