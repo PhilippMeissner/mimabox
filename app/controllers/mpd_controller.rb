@@ -1,6 +1,7 @@
 class MpdController < ApplicationController
   # Load our ruby-mpd gem environment up
   require 'ruby-mpd'
+  respond_to :json, :html
 
   # BEFORE and AFTER each action, these methods
   # get called to clean up the code
@@ -67,13 +68,14 @@ class MpdController < ApplicationController
     @mpd.pause= unless @mpd.paused?
                 end
 
-    redirect_to mpd_status_path
+    get_state
+    #redirect_to mpd_status_path
   end
 
   # Updates the queue/database
   def update
     @mpd.update
-    redirect_to mpd_status_path
+    get_state
   end
 
   # Performs a search for a specific title and adds
@@ -95,13 +97,13 @@ class MpdController < ApplicationController
 
   # Plays the passed song
   def play_song
-    @mpd.play params[:id]
-    redirect_to mpd_status_path
+    render json: @mpd.play(params[:id])
+    #redirect_to mpd_status_path
   end
 
   def remove
-    @mpd.delete(params[:id])
-    redirect_to mpd_status_path
+    render json: @mpd.delete(params[:id])
+    #redirect_to mpd_status_path
   end
 
   def upvote
@@ -126,10 +128,14 @@ class MpdController < ApplicationController
   # Returns the opposite of play/pause
   def opposite(data)
     if data == :play
-      "pause"
+      "Pause"
     else
-      :play
+      "Play"
     end
+  end
+
+  def get_state
+    render :json => @mpd.status[:state]
   end
 
   # Retrieves the songs title OR uses its filename in a human readeable form
