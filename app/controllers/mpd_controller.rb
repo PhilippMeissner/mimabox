@@ -92,6 +92,18 @@ class MpdController < ApplicationController
     redirect_to mpd_status_path
   end
 
+  def add_and_play
+    if params[:title]
+      if @mpd.songs_by_title(params[:title], { strict: false, add: true })
+        @mpd.play @mpd.queue.last.pos
+      end
+    elsif params[:artist]
+      if @mpd.songs_by_artist(params[:artist], { strict: false, add: true })
+        @mpd.play @mpd.queue.last.pos
+      end
+    end
+    redirect_to mpd_status_path
+  end
 
   # Plays the passed song
   def play_song

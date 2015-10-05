@@ -12,7 +12,8 @@
             td = song
             td
               = link_to_glyph "Add", "/mpd/add_song?title=#{song}", "check space"
-              span.glyphicon.glyphicon-play-circle.space
+              = link_to_glyph "Play", "/mpd/add_and_play?title=#{song}", "play-circle space"
+              /span.glyphicon.glyphicon-play-circle.space
               span.glyphicon.glyphicon-thumbs-up.space
               span.glyphicon.glyphicon-remove
 
