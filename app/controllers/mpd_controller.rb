@@ -25,7 +25,7 @@ class MpdController < ApplicationController
     @bitrate          = status[:bitrate]
     @state            = status[:state]
     @opposite_state   = opposite(@state)
-    @current_playlist = @mpd.queue.map{ |song| { title: get_title(song), id: song.pos } }
+    @current_playlist = @mpd.queue.map{ |song| { title: get_title(song), pos: song.pos } }
 
     if !@mpd.current_song
       @current_song = "No song playing"
@@ -34,7 +34,7 @@ class MpdController < ApplicationController
       @current_song = get_title(@mpd.current_song)
     end
 
-    @songs = @mpd.songs.map{ |song| get_title(song) }
+    @songs = @mpd.songs.first(100).map{ |song| get_title(song) }
   end
 
 
@@ -107,18 +107,18 @@ class MpdController < ApplicationController
 
   # Plays the passed song
   def play_song
-    @mpd.play params[:id]
+    @mpd.play params[:pos]
     redirect_to mpd_status_path
   end
 
   def remove
-    @mpd.delete(params[:id])
+    @mpd.delete(params[:pos])
     redirect_to mpd_status_path
   end
 
   def upvote
-    position = params[:id].to_i
-    @mpd.swap(params[:id], position - 1) unless position == 0
+    position = params[:pos].to_i
+    @mpd.swap(params[:pos], position - 1) unless position == 0
     redirect_to mpd_status_path
   end
 
