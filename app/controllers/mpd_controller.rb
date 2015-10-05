@@ -107,18 +107,18 @@ class MpdController < ApplicationController
 
   # Plays the passed song
   def play_song
-    @mpd.play params[:pos]
+    @mpd.play params[:id]
     redirect_to mpd_status_path
   end
 
   def remove
-    @mpd.delete(params[:pos])
+    @mpd.delete(params[:id])
     redirect_to mpd_status_path
   end
 
   def upvote
-    position = params[:pos].to_i
-    @mpd.swap(params[:pos], position - 1) unless position == 0
+    position = params[:id].to_i
+    @mpd.swap(params[:id], position - 1) unless position == 0
     redirect_to mpd_status_path
   end
 
